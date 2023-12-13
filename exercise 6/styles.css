@@ -1,0 +1,13 @@
+body {
+    font-family: 'Arial', sans-serif; /* Example of a different font */
+    background-color: #4CAF50; /* Example of a different background color */
+}
+
+#main-title {
+    text-align: center;
+}
+
+.content {
+    margin-bottom: 12px;
+    color: white; /* Assuming the text color should be white for readability */
+}

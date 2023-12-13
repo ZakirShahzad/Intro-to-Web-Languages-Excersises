@@ -1,0 +1,47 @@
+<!-- Input field for the item price -->
+<input type="text" id="txt-price" placeholder="Enter the price of the item">
+<!-- Input field for the item quantity -->
+<input type="text" id="txt-quantity" placeholder="Enter the quantity of the item">
+<!-- Button that triggers the calculation -->
+<button id="btn-submit">Calculate</button>
+<!-- Div element where the output will be displayed -->
+<div id="output"></div>
+
+<script>
+// Get the price input element by its ID and store it in a variable
+var priceInput = document.getElementById('txt-price');
+// Get the quantity input element by its ID and store it in a variable
+var quantityInput = document.getElementById('txt-quantity');
+// Get the submit button element by its ID and store it in a variable
+var submitBtn = document.getElementById('btn-submit');
+// Get the output div element by its ID and store it in a variable
+var output = document.getElementById('output');
+
+// Add a click event listener to the submit button
+submitBtn.addEventListener('click', function () {
+    // Retrieve the value entered in the price input and store it in a variable
+    var price = priceInput.value;
+    // Retrieve the value entered in the quantity input and store it in a variable
+    var quantity = quantityInput.value;
+    
+    // Convert price and quantity to numbers
+    price = +price;
+    quantity = +quantity;
+    
+    // Check if the entered price or quantity are not numbers
+    if (Number.isNaN(price) || Number.isNaN(quantity)) {
+        // If either is not a number, display an error message in the output div
+        output.innerHTML = 'Invalid input';
+        // Stop further execution of the function
+        return;
+    }
+    
+    // Calculate the total price by multiplying the price and quantity
+    var totalPrice = price * quantity;
+    // Round the total price to two decimal places
+    totalPrice = Math.round(totalPrice * 100) / 100;
+    
+    // Display the quantity, price per item, and total price in the output div
+    output.innerHTML = quantity + ' items at $' + price + ' each $' + totalPrice;
+});
+</script>
